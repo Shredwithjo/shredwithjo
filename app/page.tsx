@@ -77,6 +77,25 @@ function CheckIcon() {
   );
 }
 
+function ArrowIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
 
@@ -85,6 +104,10 @@ export default function Home() {
   }, []);
 
   const calendlyLink = "https://calendly.com/shredwithjo/30min";
+  const transformationPlanLink =
+    "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0AB36958U01027707NHEY2MY";
+  const elitePlanLink =
+    "https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0EA97291R5377261KNHEZCDA";
 
   const fadeUp = (delay = "") =>
     `transition-all duration-1000 ease-out ${delay} ${
@@ -102,7 +125,7 @@ export default function Home() {
           <div className="text-center lg:text-left">
             <div className={fadeUp("")}>
               <p className="text-sm uppercase tracking-[0.35em] text-white/45 mb-5">
-                Online Fitness Coaching
+                Online Fitness Coaching + Nutrition Support
               </p>
             </div>
 
@@ -116,10 +139,9 @@ export default function Home() {
 
             <div className={fadeUp("delay-200")}>
               <p className="mt-6 text-white/70 text-base md:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Online fitness coaching for fat loss, muscle gain, and body
-                recomposition. Shred With Jo helps beginners and serious lifters
-                build a leaner, stronger physique with structured training,
-                nutrition guidance, and accountability.
+                Premium body transformation coaching designed to help you lose
+                fat, build muscle, improve body composition, and stay
+                accountable with a structured plan built around your lifestyle.
               </p>
             </div>
 
@@ -138,10 +160,10 @@ export default function Home() {
               </a>
 
               <a
-                href="#coaching"
+                href="#services"
                 className="px-8 py-4 rounded-xl border border-white/20 hover:bg-white hover:text-black transition duration-300"
               >
-                View Coaching
+                View Services
               </a>
             </div>
 
@@ -150,9 +172,10 @@ export default function Home() {
                 "delay-500"
               )} mt-8 flex flex-wrap gap-6 text-sm text-white/50 justify-center lg:justify-start`}
             >
-              <span>Online Fitness Coach</span>
-              <span>Fat Loss Coaching</span>
-              <span>Muscle Gain Coaching</span>
+              <span>Custom Coaching</span>
+              <span>Fat Loss</span>
+              <span>Muscle Gain</span>
+              <span>Nutrition Support</span>
               <span>High Accountability</span>
             </div>
           </div>
@@ -165,7 +188,7 @@ export default function Home() {
               <div className="relative border border-white/10 bg-white/[0.03] rounded-[2rem] p-6 md:p-8 backdrop-blur-sm shadow-2xl shadow-black/50">
                 <img
                   src="/logo.png"
-                  alt="Shred With Jo online fitness coaching logo"
+                  alt="Shred With Jo logo"
                   className="w-72 md:w-80 mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.08)]"
                 />
               </div>
@@ -174,45 +197,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUE SECTION */}
+      {/* TRUST STRIP */}
+      <section className="px-6 py-6 border-t border-b border-white/10">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-6 text-xs md:text-sm uppercase tracking-[0.25em] text-white/40 text-center">
+          <span>Online Fitness Coaching</span>
+          <span>Transformation Focused</span>
+          <span>Nutrition Support</span>
+          <span>Premium Coaching Experience</span>
+        </div>
+      </section>
+
+      {/* VALUE */}
       <section className="px-6 py-16 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold uppercase">
             Built For Real Results
           </h2>
           <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-            Everything is designed to make your fitness transformation
-            structured, realistic, and results-driven.
+            Everything is designed to make your transformation structured,
+            realistic, and results-driven.
           </p>
 
           <div className="grid md:grid-cols-4 gap-6 mt-12 text-left">
             <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
               <h3 className="text-lg font-semibold">Custom Training</h3>
               <p className="mt-3 text-white/60">
-                Training built around your body, schedule, recovery, and goals.
+                Programs built around your body, recovery, schedule, and goals.
               </p>
             </div>
 
             <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
               <h3 className="text-lg font-semibold">Nutrition Guidance</h3>
               <p className="mt-3 text-white/60">
-                Simple, structured nutrition support for fat loss, muscle gain,
-                and better consistency.
+                Structured support for better eating habits and long-term
+                consistency.
               </p>
             </div>
 
             <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
               <h3 className="text-lg font-semibold">Accountability</h3>
               <p className="mt-3 text-white/60">
-                Check-ins, structure, and support to keep you on track.
+                Check-ins, support, and clear next steps so you stay on track.
               </p>
             </div>
 
             <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-lg font-semibold">Proven System</h3>
+              <h3 className="text-lg font-semibold">Premium Experience</h3>
               <p className="mt-3 text-white/60">
-                Built for visible, lasting transformation instead of random
-                workouts and guesswork.
+                A more personalized coaching path for serious transformation.
               </p>
             </div>
           </div>
@@ -226,91 +258,210 @@ export default function Home() {
             About Shred With Jo
           </h2>
           <p className="mt-6 text-white/70 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            Shred With Jo is an online fitness coaching brand focused on helping
-            people lose fat, build muscle, and improve body composition through
-            clear structure, disciplined habits, and coaching that fits real
-            life. Whether your goal is beginner fat loss, muscle building, or
-            body recomposition, the process is designed to be practical,
-            supportive, and effective.
+            Shred With Jo is built for people who want a leaner, stronger,
+            healthier body through training, accountability, and structured
+            support. Whether your goal is fat loss, muscle gain, or body
+            recomposition, the coaching process is designed to simplify your
+            path and keep you progressing.
           </p>
         </div>
       </section>
 
-      {/* PROGRAMS */}
-      <section id="programs" className="px-6 py-20 border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
+      {/* SERVICES */}
+      <section id="services" className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
-            Transformation Paths
+            Services
           </h2>
           <p className="mt-4 text-white/60 text-center max-w-2xl mx-auto">
-            Choose the path that fits your current goal and build from there.
+            Choose the level of support that fits your goal, your current stage,
+            and the type of transformation you want.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-2xl font-bold">Fat Loss Coaching</h3>
+            <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Fitness Coaching</h3>
               <p className="mt-3 text-white/60">
-                Drop body fat, tighten your physique, and build consistent
-                habits that last.
+                Personalized training guidance, structure, accountability, and
+                support for body transformation.
+              </p>
+              <ul className="mt-6 space-y-3 text-white/70">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Custom workout plan
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Progress tracking
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Accountability support
+                </li>
+              </ul>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Nutrition Support</h3>
+              <p className="mt-3 text-white/60">
+                Nutrition support is being expanded and will later include a
+                dedicated qualified professional on the team.
+              </p>
+              <ul className="mt-6 space-y-3 text-white/70">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Nutrition habit guidance
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Meal structure support
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Future specialist integration
+                </li>
+              </ul>
+            </div>
+
+            <div className="border border-white rounded-2xl p-8 bg-white text-black hover:scale-[1.02] transition duration-300 shadow-2xl shadow-white/5">
+              <p className="text-sm font-semibold uppercase tracking-widest">
+                Most Complete Option
+              </p>
+              <h3 className="text-2xl font-bold mt-3">
+                Premium Transformation
+              </h3>
+              <p className="mt-3 text-black/70">
+                A premium path combining fitness coaching, accountability, and
+                nutrition-focused support for a more complete transformation.
+              </p>
+              <ul className="mt-6 space-y-3 text-black/80">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Training + accountability
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Nutrition-focused direction
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  Priority support path
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM / NUTRITIONIST PLACEHOLDER */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
+            Meet The Team
+          </h2>
+          <p className="mt-4 text-white/60 text-center max-w-2xl mx-auto">
+            Your coaching experience is being built to include both training and
+            nutrition support under one transformation brand.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02]">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/40">
+                Founder
+              </p>
+              <h3 className="text-2xl font-bold mt-3">Jo</h3>
+              <p className="mt-3 text-white/60">
+                Founder of Shred With Jo, focused on body transformation,
+                discipline, structure, and helping clients build a leaner,
+                stronger physique.
               </p>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-2xl font-bold">Muscle Gain Coaching</h3>
-              <p className="mt-3 text-white/60">
-                Build size, strength, confidence, and a more powerful body.
+            <div className="border border-dashed border-white/20 rounded-2xl p-8 bg-white/[0.02]">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/40">
+                Coming Soon
               </p>
-            </div>
-
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-2xl font-bold">Body Recomposition</h3>
+              <h3 className="text-2xl font-bold mt-3">
+                Nutrition Professional
+              </h3>
               <p className="mt-3 text-white/60">
-                Build muscle while getting leaner with a structured balanced
-                approach.
+                This section is reserved for your future nutrition specialist.
+                Their qualifications, bio, service scope, and booking path can
+                be added later.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* COACHING */}
-      <section id="coaching" className="px-6 py-20 border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
+      {/* PROGRAM PATHS */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
-            Start Your Transformation
+            Transformation Paths
           </h2>
           <p className="mt-4 text-white/60 text-center max-w-2xl mx-auto">
-            Start with a free coaching call to understand your goal, your
-            current situation, and the best next step for your fitness journey.
+            Choose the path that best matches your current goal.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Fat Loss</h3>
+              <p className="mt-3 text-white/60">
+                Drop body fat, tighten your physique, and build consistency.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Muscle Gain</h3>
+              <p className="mt-3 text-white/60">
+                Build size, strength, confidence, and a stronger body.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Body Recomposition</h3>
+              <p className="mt-3 text-white/60">
+                Build muscle while getting leaner with a structured approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING / SUBSCRIPTIONS */}
+      <section id="pricing" className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
+            Coaching Plans
+          </h2>
+          <p className="mt-4 text-white/60 text-center max-w-2xl mx-auto">
+            Start with a free coaching call or subscribe directly to a coaching
+            plan that fits your current goal.
           </p>
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-12">
-            <div className="border border-white rounded-2xl p-8 bg-white text-black hover:scale-[1.02] transition duration-300 shadow-2xl shadow-white/5">
-              <p className="text-sm font-semibold uppercase tracking-widest">
-                Best Place To Start
+            <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
+              <h3 className="text-2xl font-bold">Free Coaching Call</h3>
+              <p className="mt-3 text-white/60">
+                A free strategy call to understand your goal, identify what is
+                missing, and recommend the best path.
               </p>
-              <h3 className="text-2xl font-bold mt-3">Free Coaching Call</h3>
-              <p className="mt-3 text-black/70">
-                A focused call to assess your goal, identify what is holding you
-                back, and map out your next best move.
-              </p>
+              <p className="mt-6 text-4xl font-black">Free</p>
+              <p className="text-white/50 mt-1">30 minutes</p>
 
-              <ul className="mt-6 space-y-3 text-black/80">
+              <ul className="mt-6 space-y-3 text-white/70">
                 <li className="flex items-start gap-3">
                   <CheckIcon />
                   Goal analysis
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  Personalized direction
+                  Direction and recommendations
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  Coaching recommendation
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckIcon />
-                  30-minute call
+                  Best next-step plan
                 </li>
               </ul>
 
@@ -318,20 +469,28 @@ export default function Home() {
                 href={calendlyLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl bg-black text-white hover:opacity-90 transition duration-300"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition duration-300"
               >
                 Book Call
+                <ArrowIcon />
               </a>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-2xl font-bold">Online Coaching</h3>
-              <p className="mt-3 text-white/60">
-                Personalized support for people who want structure,
-                accountability, and a clear training direction.
+            <div className="border border-white rounded-2xl p-8 bg-white text-black hover:scale-[1.02] transition duration-300 shadow-2xl shadow-white/5">
+              <p className="text-sm font-semibold uppercase tracking-widest">
+                Popular
               </p>
+              <h3 className="text-2xl font-bold mt-3">
+                Transformation Coaching
+              </h3>
+              <p className="mt-3 text-black/70">
+                Structured coaching for clients who want visible progress,
+                accountability, and consistency.
+              </p>
+              <p className="mt-6 text-4xl font-black">$59</p>
+              <p className="text-black/60 mt-1">per month</p>
 
-              <ul className="mt-6 space-y-3 text-white/70">
+              <ul className="mt-6 space-y-3 text-black/80">
                 <li className="flex items-start gap-3">
                   <CheckIcon />
                   Custom workout plan
@@ -351,21 +510,24 @@ export default function Home() {
               </ul>
 
               <a
-                href={calendlyLink}
+                href={transformationPlanLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition duration-300"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl bg-black text-white hover:opacity-90 transition duration-300"
               >
-                Learn More
+                Subscribe Now
+                <ArrowIcon />
               </a>
             </div>
 
             <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-2xl font-bold">1:1 Fitness Coaching</h3>
+              <h3 className="text-2xl font-bold">Elite 1:1 Coaching</h3>
               <p className="mt-3 text-white/60">
-                A more direct coaching experience with deeper customization and
-                closer support.
+                Premium coaching with deeper customization, closer support, and
+                a higher-touch experience.
               </p>
+              <p className="mt-6 text-4xl font-black">$119</p>
+              <p className="text-white/50 mt-1">per month</p>
 
               <ul className="mt-6 space-y-3 text-white/70">
                 <li className="flex items-start gap-3">
@@ -387,91 +549,264 @@ export default function Home() {
               </ul>
 
               <a
-                href={calendlyLink}
+                href={elitePlanLink}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition duration-300"
               >
-                Apply
+                Subscribe Elite
+                <ArrowIcon />
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHY WORK WITH JO */}
+      {/* HOW IT WORKS */}
       <section className="px-6 py-20 border-t border-white/10">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold uppercase">
-            Why Work With Jo
+            How It Works
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12 text-left">
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-xl font-semibold">Custom Plan</h3>
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-sm text-white/40 tracking-[0.2em] uppercase">
+                Step 01
+              </p>
+              <h3 className="text-xl font-semibold mt-3">Book Or Subscribe</h3>
               <p className="mt-3 text-white/60">
-                Training and nutrition tailored to your body, your schedule, and
-                your exact goal.
+                Start with a free call or subscribe to the plan that suits your
+                current goal.
               </p>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-xl font-semibold">Accountability</h3>
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-sm text-white/40 tracking-[0.2em] uppercase">
+                Step 02
+              </p>
+              <h3 className="text-xl font-semibold mt-3">Complete Intake</h3>
               <p className="mt-3 text-white/60">
-                Stay consistent with direct support, structure, and clear
-                expectations.
+                Share your goals, training background, lifestyle, and important
+                health details before starting.
               </p>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
-              <h3 className="text-xl font-semibold">Real Results</h3>
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <p className="text-sm text-white/40 tracking-[0.2em] uppercase">
+                Step 03
+              </p>
+              <h3 className="text-xl font-semibold mt-3">Start Transforming</h3>
               <p className="mt-3 text-white/60">
-                Built for people who want visible transformation, not average
-                effort.
+                Follow your plan with accountability, support, and progress
+                tracking.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* RESULTS */}
+      {/* RESULTS PLACEHOLDER */}
       <section className="px-6 py-20 border-t border-white/10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold uppercase">
             Client Results
           </h2>
           <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-            Transformation stories and progress updates will be featured here as
-            the brand grows.
+            Transformation stories, testimonials, and progress updates will be
+            featured here as the brand grows.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12 text-left">
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 transition duration-300">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
               <h3 className="text-xl font-semibold">Fat Loss Results</h3>
               <p className="mt-3 text-white/60">
                 Leaner physiques, stronger habits, and better consistency.
               </p>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 transition duration-300">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
               <h3 className="text-xl font-semibold">Muscle Gain Results</h3>
               <p className="mt-3 text-white/60">
-                More size, more strength, and a more powerful presence.
+                More size, more strength, and a stronger presence.
               </p>
             </div>
 
-            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-white/25 transition duration-300">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
               <h3 className="text-xl font-semibold">Body Recomp Results</h3>
               <p className="mt-3 text-white/60">
-                Build muscle while getting leaner with a clear structured
-                approach.
+                Structured transformation for a leaner, stronger physique.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEO CONTENT - visible, natural, useful */}
+      {/* FAQ */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="mt-12 space-y-6">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">
+                Is the coaching personalized?
+              </h3>
+              <p className="mt-3 text-white/60">
+                Yes. Your coaching is based on your goals, experience level,
+                lifestyle, and progress.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">
+                Can beginners join?
+              </h3>
+              <p className="mt-3 text-white/60">
+                Yes. Programs can be adjusted for complete beginners as well as
+                more experienced clients.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">
+                Is nutrition included?
+              </h3>
+              <p className="mt-3 text-white/60">
+                Nutrition guidance is included at the coaching level described
+                on the site. A dedicated nutrition professional can be added
+                later as the team expands.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">
+                How do I get started?
+              </h3>
+              <p className="mt-3 text-white/60">
+                Book a free coaching call or subscribe to one of the available
+                plans to begin.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REFUND POLICY */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
+            Refund Policy
+          </h2>
+          <p className="mt-6 text-white/70 text-base md:text-lg leading-relaxed">
+            Due to the nature of digital coaching, planning, and time allocation,
+            coaching services are generally non-refundable once services have
+            started or coaching materials have been delivered.
+          </p>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Refunds May Be Considered</h3>
+              <ul className="mt-4 space-y-3 text-white/60">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  If a billing error occurred
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  If the service has not yet started
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  If duplicate payment was made by mistake
+                </li>
+              </ul>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Refunds Will Not Be Issued</h3>
+              <ul className="mt-4 space-y-3 text-white/60">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  For change of mind after service begins
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  For lack of results caused by non-compliance
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  For failure to follow the plan
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-8 text-white/55">
+            To request a refund review, clients should email{" "}
+            <a
+              href="mailto:shredwithjo@gmail.com"
+              className="underline underline-offset-4"
+            >
+              shredwithjo@gmail.com
+            </a>{" "}
+            with their name, payment date, and reason for the request.
+          </p>
+        </div>
+      </section>
+
+      {/* TERMS + AGREEMENT SUMMARY */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-center uppercase">
+            Terms, Conditions & Client Agreement
+          </h2>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Website Terms</h3>
+              <p className="mt-3 text-white/60 leading-relaxed">
+                By using this website or purchasing services, you agree that all
+                coaching content is for educational purposes, results are not
+                guaranteed, and you remain responsible for your own health,
+                choices, and participation.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Client Agreement</h3>
+              <p className="mt-3 text-white/60 leading-relaxed">
+                By paying for coaching, booking, or proceeding with services,
+                the client agrees to the coaching terms, payment terms, refund
+                policy, and participation disclaimer.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Health Disclaimer</h3>
+              <p className="mt-3 text-white/60 leading-relaxed">
+                Clients should consult a qualified healthcare professional
+                before starting any fitness or nutrition-related program,
+                especially if they have injuries, medical concerns, or existing
+                conditions.
+              </p>
+            </div>
+
+            <div className="border border-white/10 rounded-2xl p-6 bg-white/[0.02]">
+              <h3 className="text-xl font-semibold">Content Ownership</h3>
+              <p className="mt-3 text-white/60 leading-relaxed">
+                All programs, plans, materials, and coaching resources remain
+                the property of Shred With Jo and may not be copied, shared, or
+                resold.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO CONTENT */}
       <section className="px-6 py-20 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold uppercase text-center">
@@ -479,32 +814,27 @@ export default function Home() {
           </h2>
           <p className="mt-6 text-white/70 leading-relaxed text-base md:text-lg">
             Shred With Jo provides online fitness coaching for people who want
-            to lose fat, build muscle, and improve body composition with a clear
-            training structure. The coaching process is designed for beginners,
-            intermediate lifters, and busy people who need a practical system
-            for fitness, nutrition, and accountability.
+            to lose fat, build muscle, improve body composition, and follow a
+            clear transformation system with structure and accountability.
           </p>
 
           <h2 className="mt-12 text-2xl md:text-4xl font-bold uppercase text-center">
             Fitness Coaching In Toronto And Online
           </h2>
           <p className="mt-6 text-white/70 leading-relaxed text-base md:text-lg">
-            Based in Toronto, Shred With Jo offers online personal training and
-            fitness coaching for clients locally and remotely. Whether your goal
-            is weight loss, muscle building, strength improvement, or body
-            recomposition, the focus is on sustainable results and consistent
-            progress.
+            Based in Toronto, Shred With Jo supports clients online with body
+            transformation coaching, fitness structure, nutrition support, and
+            premium guidance for sustainable progress.
           </p>
 
           <h2 className="mt-12 text-2xl md:text-4xl font-bold uppercase text-center">
-            Personal Training For Fat Loss, Muscle Gain, And Body Recomposition
+            Fat Loss, Muscle Gain, And Body Recomposition Support
           </h2>
           <p className="mt-6 text-white/70 leading-relaxed text-base md:text-lg">
-            This coaching is built for common fitness goals including fat loss,
-            muscle gain, beginner gym coaching, online personal training,
-            nutrition guidance, and accountability coaching. Instead of generic
-            plans, each client gets a more structured path based on their
-            current level, lifestyle, and transformation target.
+            Whether your goal is fat loss coaching, muscle gain coaching,
+            beginner fitness coaching, body recomposition, or online personal
+            training support, the process is designed to be structured,
+            practical, and easy to follow.
           </p>
         </div>
       </section>
@@ -513,11 +843,11 @@ export default function Home() {
       <section className="px-6 py-20 border-t border-white/10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold uppercase">
-            Ready To Start Your Fitness Transformation?
+            Ready To Start Your Transformation?
           </h2>
           <p className="mt-4 text-white/60">
-            Book your free coaching call and take the first serious step toward
-            a leaner, stronger body.
+            Book your free coaching call or subscribe to a plan and take the
+            first serious step toward your transformation.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -531,13 +861,35 @@ export default function Home() {
             </a>
 
             <a
-              href="tel:+14374235777"
+              href="#pricing"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/20 font-semibold hover:bg-white hover:text-black transition duration-300"
             >
-              <PhoneIcon />
-              Call Now
+              View Plans
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* FOLLOW */}
+      <section className="px-6 py-20 border-t border-white/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold uppercase">
+            Follow The Journey
+          </h2>
+          <p className="mt-4 text-white/60">
+            Follow @shredwithjo for fitness tips, training content, and
+            transformation updates.
+          </p>
+
+          <a
+            href="https://www.instagram.com/shredwithjo"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 mt-8 px-8 py-4 rounded-xl border border-white/20 font-semibold hover:bg-white hover:text-black transition duration-300"
+          >
+            <InstagramIcon />
+            Follow On Instagram
+          </a>
         </div>
       </section>
 
@@ -576,6 +928,12 @@ export default function Home() {
               <span>@shredwithjo</span>
             </a>
           </div>
+
+          <p className="mt-10 text-xs text-white/35 leading-relaxed">
+            Disclaimer: Coaching content is for educational purposes only and is
+            not medical advice. Results are not guaranteed and depend on client
+            effort, consistency, and individual factors.
+          </p>
         </div>
       </footer>
     </main>
