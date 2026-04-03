@@ -894,76 +894,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-     {/* FOOTER */}
-<footer className="mt-20 border-t border-white/10 px-6 py-16">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-2xl md:text-4xl font-bold uppercase">Contact</h2>
-    <p className="mt-4 text-white/55">
-      Reach out and start your transformation.
-    </p>
-
-    <div className="mt-10 grid gap-4 md:grid-cols-3">
-      <a
-        href="tel:+14374235777"
-        className="flex items-center justify-center gap-3 border border-white/10 rounded-2xl px-6 py-5 text-white/80 hover:bg-white hover:text-black hover:border-white transition duration-300"
-      >
-        <PhoneIcon />
-        <span>+1 437 423 5777</span>
-      </a>
-
-      <a
-        href="mailto:shredwithjo@gmail.com"
-        className="flex items-center justify-center gap-3 border border-white/10 rounded-2xl px-6 py-5 text-white/80 hover:bg-white hover:text-black hover:border-white transition duration-300"
-      >
-        <MailIcon />
-        <span>shredwithjo@gmail.com</span>
-      </a>
-
-      <a
-        href="https://www.instagram.com/shredwithjo"
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center justify-center gap-3 border border-white/10 rounded-2xl px-6 py-5 text-white/80 hover:bg-white hover:text-black hover:border-white transition duration-300"
-      >
-        <InstagramIcon />
-        <span>@shredwithjo</span>
-      </a>
-    </div>
-
-    <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-white/55">
-      <a
-        href="/privacy-policy"
-        className="hover:text-white transition duration-300"
-      >
-        Privacy Policy
-      </a>
-
-      <a
-        href="/terms-and-conditions"
-        className="hover:text-white transition duration-300"
-      >
-        Terms & Conditions
-      </a>
-
-      <a
-        href="/refund-policy"
-        className="hover:text-white transition duration-300"
-      >
-        Refund Policy
-      </a>
-    </div>
-
-    <p className="mt-10 max-w-2xl mx-auto text-xs text-white/35 leading-relaxed">
-      Disclaimer: Coaching content is for educational purposes only and is not
-      medical advice. Results are not guaranteed and depend on client effort,
-      consistency, and individual factors.
-    </p>
-
-    <p className="mt-6 text-xs text-white/30">
-      © {new Date().getFullYear()} Shred With Jo. All rights reserved.
-    </p>
-  </div>
-</footer>
+     
     </main>
   );
 }
