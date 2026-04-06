@@ -61,8 +61,10 @@ function InstagramIcon() {
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
-  const [agreedToPolicies, setAgreedToPolicies] = useState(false);
   const [showPolicyModal, setShowPolicyModal] = useState(false);
+  const [agreedToPolicies, setAgreedToPolicies] = useState(false);
+  const [selectedPlanLink, setSelectedPlanLink] = useState("");
+  const [selectedPlanName, setSelectedPlanName] = useState("");
 
   useEffect(() => {
     setLoaded(true);
@@ -79,17 +81,17 @@ export default function Home() {
       loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
     }`;
 
-  const handlePaidPlanClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    link: string
-  ) => {
-    if (!agreedToPolicies) {
-      e.preventDefault();
-      setShowPolicyModal(true);
-      return;
-    }
+  const openPolicyModal = (planName: string, planLink: string) => {
+    setSelectedPlanName(planName);
+    setSelectedPlanLink(planLink);
+    setAgreedToPolicies(false);
+    setShowPolicyModal(true);
+  };
 
-    window.open(link, "_blank", "noopener,noreferrer");
+  const handleContinueToPayment = () => {
+    if (!agreedToPolicies || !selectedPlanLink) return;
+    window.open(selectedPlanLink, "_blank", "noopener,noreferrer");
+    setShowPolicyModal(false);
   };
 
   return (
@@ -423,45 +425,37 @@ export default function Home() {
             </p>
 
             <div className="mt-10 max-w-3xl mx-auto border border-white/10 rounded-2xl p-5 bg-white/[0.02]">
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  id="policy-agreement"
-                  checked={agreedToPolicies}
-                  onChange={(e) => setAgreedToPolicies(e.target.checked)}
-                  className="mt-1 h-4 w-4 accent-white cursor-pointer"
-                />
-                <label
-                  htmlFor="policy-agreement"
-                  className="text-sm md:text-base text-white/75 leading-relaxed cursor-pointer"
+              <p className="text-sm md:text-base text-white/70 text-center leading-relaxed">
+                When a client clicks a paid plan, a review popup will appear
+                before payment so they can read and agree to the{" "}
+                <a
+                  href="/privacy-policy"
+                  className="underline underline-offset-4 hover:text-white"
                 >
-                  I agree to the{" "}
-                  <a
-                    href="/terms-and-conditions"
-                    className="underline underline-offset-4 hover:text-white"
-                  >
-                    Terms and Conditions
-                  </a>
-                  ,{" "}
-                  <a
-                    href="/privacy-policy"
-                    className="underline underline-offset-4 hover:text-white"
-                  >
-                    Privacy Policy
-                  </a>
-                  , and{" "}
-                  <a
-                    href="/refund-policy"
-                    className="underline underline-offset-4 hover:text-white"
-                  >
-                    Refund Policy
-                  </a>{" "}
-                  before purchasing a coaching plan.
-                </label>
-              </div>
-
-              <p className="mt-3 text-xs text-white/45">
-                This is required only for paid coaching plans.
+                  Privacy Policy
+                </a>
+                ,{" "}
+                <a
+                  href="/terms-and-conditions"
+                  className="underline underline-offset-4 hover:text-white"
+                >
+                  Terms & Conditions
+                </a>
+                ,{" "}
+                <a
+                  href="/refund-policy"
+                  className="underline underline-offset-4 hover:text-white"
+                >
+                  Refund Policy
+                </a>
+                , and{" "}
+                <a
+                  href="/client-agreement"
+                  className="underline underline-offset-4 hover:text-white"
+                >
+                  Client Agreement
+                </a>
+                .
               </p>
             </div>
 
@@ -534,19 +528,19 @@ export default function Home() {
                   </li>
                 </ul>
 
-                <a
-                  href={agreedToPolicies ? transformationPlanLink : "#"}
-                  onClick={(e) => handlePaidPlanClick(e, transformationPlanLink)}
-                  className={`inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl transition duration-300 ${
-                    agreedToPolicies
-                      ? "bg-black text-white hover:opacity-90"
-                      : "bg-black/40 text-black/50 cursor-not-allowed"
-                  }`}
-                  aria-disabled={!agreedToPolicies}
+                <button
+                  type="button"
+                  onClick={() =>
+                    openPolicyModal(
+                      "Transformation Coaching",
+                      transformationPlanLink
+                    )
+                  }
+                  className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl bg-black text-white hover:opacity-90 transition duration-300"
                 >
                   Subscribe Now
                   <ArrowIcon />
-                </a>
+                </button>
               </div>
 
               <div className="border border-white/10 rounded-2xl p-8 bg-white/[0.02] hover:border-white/25 hover:-translate-y-1 transition duration-300">
@@ -577,19 +571,16 @@ export default function Home() {
                   </li>
                 </ul>
 
-                <a
-                  href={agreedToPolicies ? elitePlanLink : "#"}
-                  onClick={(e) => handlePaidPlanClick(e, elitePlanLink)}
-                  className={`inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl border transition duration-300 ${
-                    agreedToPolicies
-                      ? "border-white/20 hover:bg-white hover:text-black"
-                      : "border-white/10 text-white/40 cursor-not-allowed"
-                  }`}
-                  aria-disabled={!agreedToPolicies}
+                <button
+                  type="button"
+                  onClick={() =>
+                    openPolicyModal("Elite 1:1 Coaching", elitePlanLink)
+                  }
+                  className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition duration-300"
                 >
                   Subscribe Elite
                   <ArrowIcon />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -931,7 +922,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* PREMIUM POLICY MODAL */}
+      {/* POLICY / PAYMENT MODAL */}
       {showPolicyModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
           <div
@@ -939,7 +930,7 @@ export default function Home() {
             onClick={() => setShowPolicyModal(false)}
           />
 
-          <div className="relative w-full max-w-lg rounded-3xl border border-white/10 bg-[#0b0b0b] p-8 shadow-2xl shadow-black/60">
+          <div className="relative w-full max-w-xl rounded-3xl border border-white/10 bg-[#0b0b0b] p-8 shadow-2xl shadow-black/60">
             <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)] pointer-events-none" />
 
             <div className="relative">
@@ -948,29 +939,32 @@ export default function Home() {
               </p>
 
               <h3 className="mt-3 text-2xl md:text-3xl font-bold">
-                Please Review The Policies First
+                Review And Accept Before Payment
               </h3>
 
               <p className="mt-4 text-white/65 leading-relaxed">
-                Before proceeding to payment, please read the following pages
-                carefully and then tick the agreement checkbox in the pricing
-                section.
+                You are about to continue with{" "}
+                <span className="text-white font-semibold">
+                  {selectedPlanName}
+                </span>
+                . Please review the policies below and confirm your agreement
+                before proceeding to payment.
               </p>
 
               <div className="mt-6 space-y-3">
-                <a
-                  href="/terms-and-conditions"
-                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 hover:border-white/25 hover:bg-white/[0.06] transition duration-300"
-                >
-                  <span>Terms and Conditions</span>
-                  <ArrowIcon />
-                </a>
-
                 <a
                   href="/privacy-policy"
                   className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 hover:border-white/25 hover:bg-white/[0.06] transition duration-300"
                 >
                   <span>Privacy Policy</span>
+                  <ArrowIcon />
+                </a>
+
+                <a
+                  href="/terms-and-conditions"
+                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 hover:border-white/25 hover:bg-white/[0.06] transition duration-300"
+                >
+                  <span>Terms & Conditions</span>
                   <ArrowIcon />
                 </a>
 
@@ -981,28 +975,61 @@ export default function Home() {
                   <span>Refund Policy</span>
                   <ArrowIcon />
                 </a>
+
+                <a
+                  href="/client-agreement"
+                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 hover:border-white/25 hover:bg-white/[0.06] transition duration-300"
+                >
+                  <span>Client Agreement</span>
+                  <ArrowIcon />
+                </a>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-white/60">
-                After reading them, close this popup, tick the checkbox, and
-                then continue to your subscription.
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="modal-policy-agreement"
+                    checked={agreedToPolicies}
+                    onChange={(e) => setAgreedToPolicies(e.target.checked)}
+                    className="mt-1 h-4 w-4 accent-white cursor-pointer"
+                  />
+                  <label
+                    htmlFor="modal-policy-agreement"
+                    className="text-sm md:text-base text-white/75 leading-relaxed cursor-pointer"
+                  >
+                    I have read and agree to the Privacy Policy, Terms &
+                    Conditions, Refund Policy, and Client Agreement before
+                    proceeding with payment.
+                  </label>
+                </div>
+              </div>
+
+              <div className="mt-4 text-sm text-white/45">
+                You must check the agreement box before continuing.
               </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => setShowPolicyModal(false)}
-                  className="px-6 py-3 rounded-xl bg-white text-black font-semibold hover:opacity-90 transition duration-300"
+                  type="button"
+                  onClick={handleContinueToPayment}
+                  disabled={!agreedToPolicies}
+                  className={`px-6 py-3 rounded-xl font-semibold transition duration-300 ${
+                    agreedToPolicies
+                      ? "bg-white text-black hover:opacity-90"
+                      : "bg-white/20 text-white/40 cursor-not-allowed"
+                  }`}
                 >
-                  I Understand
+                  Continue To Payment
                 </button>
 
-                <a
-                  href="#pricing"
+                <button
+                  type="button"
                   onClick={() => setShowPolicyModal(false)}
                   className="px-6 py-3 rounded-xl border border-white/20 text-center hover:bg-white hover:text-black transition duration-300"
                 >
-                  Back To Pricing
-                </a>
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
