@@ -426,36 +426,9 @@ export default function Home() {
 
             <div className="mt-10 max-w-3xl mx-auto border border-white/10 rounded-2xl p-5 bg-white/[0.02]">
               <p className="text-sm md:text-base text-white/70 text-center leading-relaxed">
-                When a client clicks a paid plan, a review popup will appear
-                before payment so they can read and agree to the{" "}
-                <a
-                  href="/privacy-policy"
-                  className="underline underline-offset-4 hover:text-white"
-                >
-                  Privacy Policy
-                </a>
-                ,{" "}
-                <a
-                  href="/terms-and-conditions"
-                  className="underline underline-offset-4 hover:text-white"
-                >
-                  Terms & Conditions
-                </a>
-                ,{" "}
-                <a
-                  href="/refund-policy"
-                  className="underline underline-offset-4 hover:text-white"
-                >
-                  Refund Policy
-                </a>
-                , and{" "}
-                <a
-                  href="/client-agreement"
-                  className="underline underline-offset-4 hover:text-white"
-                >
-                  Client Agreement
-                </a>
-                .
+                Paid plans require policy review before checkout. When a client
+                clicks a paid plan, a mandatory review popup appears before
+                payment.
               </p>
             </div>
 
